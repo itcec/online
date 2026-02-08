@@ -225,29 +225,22 @@
     // Placed before runtime scripts so they pick up the correct URL immediately.
     window.ANSWER_API_URL = 'https://script.google.com/macros/s/AKfycbxw4dITKgZHApGwPWdciAWvMMofoT6-jwyqwQK-GPZLQxS23jQxEyWhGk53_58LHKcWIQ/exec';
 
-     const buttons = document.querySelectorAll('.section-btn');
-    const input = document.getElementById('firstName'); // SAME ID
-  
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // reset styles
-        buttons.forEach(b => {
-          b.classList.remove('btn-primary');
-          b.classList.add('btn-outline-primary');
-        });
-  
-        // active style
-        btn.classList.remove('btn-outline-primary');
-        btn.classList.add('btn-primary');
-  
-        // set value (number only)
-        input.value = btn.dataset.value;
-      });
+  const sectionButtons = document.querySelectorAll('.section-btn');
+  const sectionInput = document.getElementById('firstName');
+
+  sectionButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      sectionButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      sectionInput.value = btn.textContent.trim();
     });
+  });
+
   </script>
 </body>
 
 </html>
+
 
 
 
